@@ -1,0 +1,409 @@
+/* Reset e configurações básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Arial, sans-serif;
+    line-height: 1.6;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header e Navegação */
+.navbar {
+    background-color: #00008B;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    color: #ffffff;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+}
+
+.logo span {
+    color: #D3D3D3;
+    font-size: 0.9rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #D3D3D3;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-login, .btn-register {
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-login {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-login:hover {
+    background-color: #ffffff;
+    color: #00008B;
+}
+
+.btn-register {
+    background-color: #0000FF;
+    color: #ffffff;
+}
+
+.btn-register:hover {
+    background-color: #0000CD;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #00008B 0%, #0000CD 100%);
+    color: #ffffff;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #D3D3D3;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.search-box input {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    font-family: Verdana, Arial, sans-serif;
+    flex: 1;
+    min-width: 200px;
+}
+
+.btn-search {
+    padding: 0.8rem 2rem;
+    background-color: #0000FF;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-search:hover {
+    background-color: #0000CD;
+}
+
+/* Categories Section */
+.categories {
+    padding: 4rem 0;
+    background-color: #ffffff;
+}
+
+.categories h3 {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2rem;
+    color: #00008B;
+    margin-bottom: 3rem;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.category-card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 2px solid #D3D3D3;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    border-color: #0000CD;
+}
+
+.category-card h4 {
+    color: #00008B;
+    margin-bottom: 1rem;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.category-card p {
+    color: #000000;
+}
+
+/* Featured Jobs Section */
+.featured-jobs {
+    padding: 4rem 0;
+    background-color: #D3D3D3;
+}
+
+.featured-jobs h3 {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2rem;
+    color: #00008B;
+    margin-bottom: 3rem;
+}
+
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.job-card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-3px);
+}
+
+.job-card h4 {
+    color: #00008B;
+    margin-bottom: 1rem;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.company {
+    display: block;
+    color: #0000CD;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.location, .modality {
+    display: inline-block;
+    background-color: #D3D3D3;
+    color: #000000;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.job-card p {
+    color: #000000;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.btn-apply {
+    background-color: #0000FF;
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.btn-apply:hover {
+    background-color: #0000CD;
+}
+
+.see-all {
+    text-align: center;
+}
+
+.btn-see-all {
+    background-color: transparent;
+    color: #00008B;
+    padding: 1rem 2rem;
+    border: 2px solid #00008B;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-see-all:hover {
+    background-color: #00008B;
+    color: #ffffff;
+}
+
+/* Benefits Section */
+.benefits {
+    padding: 4rem 0;
+    background-color: #ffffff;
+}
+
+.benefits h3 {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2rem;
+    color: #00008B;
+    margin-bottom: 3rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.benefit-item {
+    text-align: center;
+    padding: 2rem;
+}
+
+.benefit-item h4 {
+    color: #00008B;
+    margin-bottom: 1rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.3rem;
+}
+
+.benefit-item p {
+    color: #000000;
+}
+
+/* Footer */
+footer {
+    background-color: #00008B;
+    color: #ffffff;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    font-family: Georgia, 'Times New Roman', serif;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.footer-section p, .footer-section a {
+    color: #D3D3D3;
+    text-decoration: none;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #0000CD;
+    color: #D3D3D3;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .search-box {
+        flex-direction: column;
+    }
+    
+    .search-box input {
+        min-width: 100%;
+    }
+    
+    .category-grid,
+    .jobs-grid,
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
