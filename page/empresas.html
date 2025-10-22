@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStage - [Nome da Página]</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <style>
+        /* Companies Section Styles */
+.companies-section {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2.5rem;
+    color: #00008B;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #000000;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.companies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.company-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #D3D3D3;
+}
+
+.company-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.company-logo {
+    flex-shrink: 0;
+}
+
+.logo-placeholder {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #00008B 0%, #0000CD 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.company-info {
+    flex: 1;
+}
+
+.company-info h3 {
+    color: #00008B;
+    font-family: Georgia, 'Times New Roman', serif;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.company-industry {
+    display: inline-block;
+    background-color: #0000CD;
+    color: #ffffff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.company-description {
+    color: #000000;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.company-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-item {
+    font-size: 0.9rem;
+    color: #000000;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tag {
+    background-color: #D3D3D3;
+    color: #000000;
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.company-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    min-width: 100px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0000FF;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #000000;
+}
+
+.btn-view-jobs {
+    background-color: #0000FF;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-view-jobs:hover {
+    background-color: #0000CD;
+}
+
+/* CTA Section */
+.cta-companies {
+    background: linear-gradient(135deg, #00008B 0%, #0000CD 100%);
+    color: #ffffff;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.cta-content h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background-color: #0000FF;
+    color: #ffffff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ffffff;
+    color: #00008B;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #ffffff;
+    color: #00008B;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .companies-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .company-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .company-details {
+        align-items: center;
+    }
+    
+    .tech-stack {
+        justify-content: center;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-card {
+        padding: 1.5rem;
+    }
+    
+    .cta-content h3 {
+        font-size: 1.5rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- COLE AQUI O HEADER DO INDEX.HTML -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>TechStage</h1>
+                    <span>Estágios em Tech</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="vagas.html">Vagas</a></li>
+                    <li><a href="empresas.html">Empresas</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="btn-login">Entrar</button>
+                    <button class="btn-register">Cadastrar</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- COLE AQUI O CONTEÚDO ESPECÍFICO DE CADA PÁGINA -->
+        <section id="empresas" class="companies-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Empresas Parceiras</h2>
+                    <p>Conheça as empresas inovadoras que confiam no TechStage para encontrar os melhores talentos tech</p>
+                </div>
+        
+                <div class="companies-grid">
+                    <!-- Empresa 1 -->
+                    <div class="company-card">
+                        <div class="company-logo">
+                            <div class="logo-placeholder">🚀</div>
+                        </div>
+                        <div class="company-info">
+                            <h3>TechInnovate Solutions</h3>
+                            <span class="company-industry">Desenvolvimento de Software</span>
+                            <p class="company-description">Líder em soluções digitais customizadas, focada em transformação digital e inovação disruptiva.</p>
+                            <div class="company-details">
+                                <span class="detail-item">📍 São Paulo, SP</span>
+                                <span class="detail-item">👥 150-200 funcionários</span>
+                                <span class="detail-item">💻 Presencial/Híbrido</span>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Python</span>
+                            </div>
+                        </div>
+                        <div class="company-stats">
+                            <div class="stat">
+                                <span class="stat-number">12</span>
+                                <span class="stat-label">Vagas Ativas</span>
+                            </div>
+                            <button class="btn-view-jobs">Ver Vagas</button>
+                        </div>
+                    </div>
+        
+                    <!-- Empresa 2 -->
+                    <div class="company-card">
+                        <div class="company-logo">
+                            <div class="logo-placeholder">📊</div>
+                        </div>
+                        <div class="company-info">
+                            <h3>DataMasters Analytics</h3>
+                            <span class="company-industry">Ciência de Dados & BI</span>
+                            <p class="company-description">Especializada em Big Data, Machine Learning e Business Intelligence para tomada de decisões estratégicas.</p>
+                            <div class="company-details">
+                                <span class="detail-item">📍 Remoto</span>
+                                <span class="detail-item">👥 80-120 funcionários</span>
+                                <span class="detail-item">💻 100% Remoto</span>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Power BI</span>
+                            </div>
+                        </div>
+                        <div class="company-stats">
+                            <div class="stat">
+                                <span class="stat-number">8</span>
+                                <span class="stat-label">Vagas Ativas</span>
+                            </div>
+                            <button class="btn-view-jobs">Ver Vagas</button>
+                        </div>
+                    </div>
+        
+                    <!-- Empresa 3 -->
+                    <div class="company-card">
+                        <div class="company-logo">
+                            <div class="logo-placeholder">📱</div>
+                        </div>
+                        <div class="company-info">
+                            <h3>MobileFirst Dev</h3>
+                            <span class="company-industry">Desenvolvimento Mobile</span>
+                            <p class="company-description">Criação de aplicativos mobile inovadores para iOS e Android, com foco em experiência do usuário.</p>
+                            <div class="company-details">
+                                <span class="detail-item">📍 Rio de Janeiro, RJ</span>
+                                <span class="detail-item">👥 50-80 funcionários</span>
+                                <span class="detail-item">💻 Híbrido</span>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">Flutter</span>
+                                <span class="tech-tag">Swift</span>
+                                <span class="tech-tag">Kotlin</span>
+                            </div>
+                        </div>
+                        <div class="company-stats">
+                            <div class="stat">
+                                <span class="stat-number">6</span>
+                                <span class="stat-label">Vagas Ativas</span>
+                            </div>
+                            <button class="btn-view-jobs">Ver Vagas</button>
+                        </div>
+                    </div>
+        
+                    <!-- Empresa 4 -->
+                    <div class="company-card">
+                        <div class="company-logo">
+                            <div class="logo-placeholder">☁️</div>
+                        </div>
+                        <div class="company-info">
+                            <h3>CloudNest Tech</h3>
+                            <span class="company-industry">Cloud Computing & DevOps</span>
+                            <p class="company-description">Infraestrutura cloud, DevOps e soluções escaláveis para empresas em crescimento acelerado.</p>
+                            <div class="company-details">
+                                <span class="detail-item">📍 Belo Horizonte, MG</span>
+                                <span class="detail-item">👥 100-150 funcionários</span>
+                                <span class="detail-item">💻 Remoto/Presencial</span>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">AWS</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">Kubernetes</span>
+                                <span class="tech-tag">Terraform</span>
+                            </div>
+                        </div>
+                        <div class="company-stats">
+                            <div class="stat">
+                                <span class="stat-number">10</span>
+                                <span class="stat-label">Vagas Ativas</span>
+                            </div>
+                            <button class="btn-view-jobs">Ver Vagas</button>
+                        </div>
+                    </div>
+        
+                    <!-- Empresa 5 -->
+                    <div class="company-card">
+                        <div class="company-logo">
+                            <div class="logo-placeholder">🔒</div>
+                        </div>
+                        <div class="company-info">
+                            <h3>SecureCode Systems</h3>
+                            <span class="company-industry">Cybersecurity</span>
+                            <p class="company-description">Proteção digital e desenvolvimento seguro, garantindo a segurança de sistemas e dados sensíveis.</p>
+                            <div class="company-details">
+                                <span class="detail-item">📍 Brasília, DF</span>
+                                <span class="detail-item">👥 200-300 funcionários</span>
+                                <span class="detail-item">💻 Presencial</span>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Cybersecurity</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">C++</span>
+                                <span class="tech-tag">Ethical Hacking</span>
+                            </div>
+                        </div>
+                        <div class="company-stats">
+                            <div class="stat">
+                                <span class="stat-number">5</span>
+                                <span class="stat-label">Vagas Ativas</span>
+                            </div>
+                            <button class="btn-view-jobs">Ver Vagas</button>
+                        </div>
+                    </div>
+        
+                    <!-- Empresa 6 -->
+                    <div class="company-card">
+                        <div class="company-logo">
+                            <div class="logo-placeholder">🤖</div>
+                        </div>
+                        <div class="company-info">
+                            <h3>AI Pioneers Lab</h3>
+                            <span class="company-industry">Inteligência Artificial</span>
+                            <p class="company-description">Pesquisa e desenvolvimento em IA, machine learning e soluções cognitivas para diversos setores.</p>
+                            <div class="company-details">
+                                <span class="detail-item">📍 Campinas, SP</span>
+                                <span class="detail-item">👥 60-90 funcionários</span>
+                                <span class="detail-item">💻 Híbrido</span>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">Deep Learning</span>
+                            </div>
+                        </div>
+                        <div class="company-stats">
+                            <div class="stat">
+                                <span class="stat-number">7</span>
+                                <span class="stat-label">Vagas Ativas</span>
+                            </div>
+                            <button class="btn-view-jobs">Ver Vagas</button>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Call to Action para Empresas -->
+                <div class="cta-companies">
+                    <div class="cta-content">
+                        <h3>Sua empresa também pode fazer parte!</h3>
+                        <p>Junte-se às empresas inovadoras que já descobriram talentos excepcionais através do TechStage</p>
+                        <div class="cta-buttons">
+                            <button class="btn-primary">Cadastrar Empresa</button>
+                            <button class="btn-secondary">Falar com Consultor</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- COLE AQUI O FOOTER DO INDEX.HTML -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TechStage</h4>
+                    <p>Sua plataforma especializada em estágios de tecnologia</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="vagas.html">Vagas</a></li>
+                        <li><a href="empresas.html">Para Empresas</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>email@techstage.com</p>
+                    <p>(11) 99999-9999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechStage. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

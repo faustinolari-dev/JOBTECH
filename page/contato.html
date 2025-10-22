@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStage - [Contato]</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <style>
+        /* Contact Section Styles */
+.contact-section {
+    padding: 4rem 0;
+    background-color: #ffffff;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2.5rem;
+    color: #00008B;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #000000;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+/* Contact Info */
+.contact-info h3 {
+    color: #00008B;
+    font-family: Georgia, 'Times New Roman', serif;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #0000CD;
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.contact-details h4 {
+    color: #00008B;
+    margin-bottom: 0.5rem;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.contact-details p {
+    color: #000000;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.contact-details span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Social Media */
+.social-media {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.social-media h4 {
+    color: #00008B;
+    margin-bottom: 1rem;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.social-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.social-link {
+    display: block;
+    padding: 0.8rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+}
+
+.social-link.linkedin { background-color: #0077B5; }
+.social-link.instagram { background-color: #E4405F; }
+.social-link.twitter { background-color: #1DA1F2; }
+.social-link.github { background-color: #333; }
+
+/* Contact Form */
+.contact-form-container {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #D3D3D3;
+}
+
+.contact-form-container h3 {
+    color: #00008B;
+    font-family: Georgia, 'Times New Roman', serif;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: #00008B;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #0000FF;
+    box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.1);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkbox-group input {
+    width: auto;
+}
+
+.checkbox-group label {
+    margin: 0;
+    font-weight: normal;
+    color: #000000;
+}
+
+.btn-submit {
+    background-color: #0000FF;
+    color: #ffffff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background-color: #0000CD;
+}
+
+/* FAQ Section */
+.faq-section {
+    margin-bottom: 4rem;
+}
+
+.faq-section h3 {
+    color: #00008B;
+    font-family: Georgia, 'Times New Roman', serif;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.faq-item {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #0000CD;
+}
+
+.faq-item h4 {
+    color: #00008B;
+    margin-bottom: 1rem;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.faq-item p {
+    color: #000000;
+    line-height: 1.5;
+}
+
+/* Map Section */
+.map-section {
+    margin-bottom: 3rem;
+}
+
+.map-section h3 {
+    color: #00008B;
+    font-family: Georgia, 'Times New Roman', serif;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.map-placeholder {
+    background: linear-gradient(135deg, #00008B 0%, #0000CD 100%);
+    color: #ffffff;
+    padding: 3rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.map-content h4 {
+    font-family: Georgia, 'Times New Roman', serif;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.map-content p {
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.map-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.btn-map {
+    background-color: #ffffff;
+    color: #00008B;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-map:hover {
+    background-color: #0000FF;
+    color: #ffffff;
+}
+
+/* Business Hours */
+.business-hours {
+    text-align: center;
+}
+
+.business-hours h3 {
+    color: #00008B;
+    font-family: Georgia, 'Times New Roman', serif;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.hours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hour-item {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.day {
+    font-weight: 600;
+    color: #00008B;
+}
+
+.time {
+    color: #000000;
+    font-size: 1.1rem;
+}
+
+.hours-note {
+    color: #666;
+    font-style: italic;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .social-links {
+        grid-template-columns: 1fr;
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-map {
+        width: 200px;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form-container {
+        padding: 1.5rem;
+    }
+    
+    .map-placeholder {
+        padding: 2rem 1rem;
+    }
+    
+    .hours-grid {
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- COLE AQUI O HEADER DO INDEX.HTML -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>TechStage</h1>
+                    <span>Estágios em Tech</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="vagas.html">Vagas</a></li>
+                    <li><a href="empresas.html">Empresas</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="btn-login">Entrar</button>
+                    <button class="btn-register">Cadastrar</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- COLE AQUI O CONTEÚDO ESPECÍFICO DE CADA PÁGINA -->
+        <section id="contato" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Fale Conosco</h2>
+                    <p>Estamos aqui para ajudar! Entre em contato conosco para qualquer dúvida, sugestão ou parceria.</p>
+                </div>
+        
+                <div class="contact-content">
+                    <!-- Informações de Contato -->
+                    <div class="contact-info">
+                        <h3>📞 Nossos Canais</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h4>E-mail</h4>
+                                <p>contato@techstage.com</p>
+                                <span>Para assuntos gerais e suporte</span>
+                            </div>
+                        </div>
+        
+                        <div class="contact-item">
+                            <div class="contact-icon">💼</div>
+                            <div class="contact-details">
+                                <h4>Parcerias Empresariais</h4>
+                                <p>empresas@techstage.com</p>
+                                <span>Para empresas interessadas em parceria</span>
+                            </div>
+                        </div>
+        
+                        <div class="contact-item">
+                            <div class="contact-icon">🎓</div>
+                            <div class="contact-details">
+                                <h4>Suporte ao Estudante</h4>
+                                <p>suporte@techstage.com</p>
+                                <span>Dúvidas sobre vagas e processos</span>
+                            </div>
+                        </div>
+        
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-details">
+                                <h4>Telefone/WhatsApp</h4>
+                                <p>(11) 99999-9999</p>
+                                <span>Segunda a Sexta, das 9h às 18h</span>
+                            </div>
+                        </div>
+        
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-details">
+                                <h4>Endereço</h4>
+                                <p>Av. Paulista, 1000 - Bela Vista</p>
+                                <p>São Paulo - SP, 01310-100</p>
+                                <span>Escritório principal</span>
+                            </div>
+                        </div>
+        
+                        <!-- Redes Sociais -->
+                        <div class="social-media">
+                            <h4>🌐 Siga-nos nas Redes Sociais</h4>
+                            <div class="social-links">
+                                <a href="#" class="social-link linkedin">LinkedIn</a>
+                                <a href="#" class="social-link instagram">Instagram</a>
+                                <a href="#" class="social-link twitter">Twitter</a>
+                                <a href="#" class="social-link github">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Formulário de Contato -->
+                    <div class="contact-form-container">
+                        <h3>✉️ Envie uma Mensagem</h3>
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nome Completo *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="email">E-mail *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="phone">Telefone/WhatsApp</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="subject">Assunto *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Selecione o assunto...</option>
+                                    <option value="estudante">Dúvida de Estudante</option>
+                                    <option value="empresa">Parceria Empresarial</option>
+                                    <option value="suporte">Suporte Técnico</option>
+                                    <option value="sugestao">Sugestão</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="message">Mensagem *</label>
+                                <textarea id="message" name="message" rows="6" required placeholder="Descreva sua dúvida, sugestão ou proposta..."></textarea>
+                            </div>
+        
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <label for="newsletter">Desejo receber novidades sobre vagas e oportunidades no e-mail</label>
+                            </div>
+        
+                            <button type="submit" class="btn-submit">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                </div>
+        
+                <!-- FAQ Section -->
+                <div class="faq-section">
+                    <h3>❓ Perguntas Frequentes</h3>
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <h4>Como me cadastrar como estudante?</h4>
+                            <p>Clique em "Cadastrar" no menu superior, preencha seus dados acadêmicos e de experiência. Em até 24h seu perfil estará ativo para se candidatar às vagas.</p>
+                        </div>
+        
+                        <div class="faq-item">
+                            <h4>Minha empresa quer anunciar vagas, como proceder?</h4>
+                            <p>Entre em contato pelo e-mail empresas@techstage.com ou pelo formulário acima selecionando "Parceria Empresarial". Nossa equipe entrará em contato em até 2 horas úteis.</p>
+                        </div>
+        
+                        <div class="faq-item">
+                            <h4>Quanto custa para empresas anunciarem vagas?</h4>
+                            <p>Oferecemos planos flexíveis conforme o número de vagas e tempo de publicação. Para startups e pequenas empresas, temos condições especiais.</p>
+                        </div>
+        
+                        <div class="faq-item">
+                            <h4>Como é o processo de seleção?</h4>
+                            <p>As empresas recebem os currículos através de nossa plataforma e entram em contato diretamente com os candidatos para as etapas seguintes do processo.</p>
+                        </div>
+        
+                        <div class="faq-item">
+                            <h4>Preciso ter experiência prévia para me candidatar?</h4>
+                            <p>Não! Muitas de nossas vagas são para primeiro emprego e valorizamos o potencial e a vontade de aprender dos estudantes.</p>
+                        </div>
+        
+                        <div class="faq-item">
+                            <h4>Como posso melhorar meu perfil para atrair recrutadores?</h4>
+                            <p>Complete todas as informações do perfil, adicione projetos do GitHub, destaque habilidades técnicas e particulares de cursos/certificações.</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Mapa -->
+                <div class="map-section">
+                    <h3>🗺️ Onde Estamos</h3>
+                    <div class="map-placeholder">
+                        <div class="map-content">
+                            <h4>TechStage Headquarters</h4>
+                            <p>Av. Paulista, 1000 - Bela Vista</p>
+                            <p>São Paulo - SP, 01310-100</p>
+                            <p>Próximo ao Metrô Trianon-MASP</p>
+                            <div class="map-actions">
+                                <button class="btn-map">Abrir no Google Maps</button>
+                                <button class="btn-map">Como Chegar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Horário de Atendimento -->
+                <div class="business-hours">
+                    <h3>🕒 Horário de Atendimento</h3>
+                    <div class="hours-grid">
+                        <div class="hour-item">
+                            <span class="day">Segunda a Sexta</span>
+                            <span class="time">9:00 - 18:00</span>
+                        </div>
+                        <div class="hour-item">
+                            <span class="day">Sábados</span>
+                            <span class="time">9:00 - 13:00</span>
+                        </div>
+                        <div class="hour-item">
+                            <span class="day">Domingos e Feriados</span>
+                            <span class="time">Fechado</span>
+                        </div>
+                    </div>
+                    <p class="hours-note">Atendimento por e-mail e WhatsApp durante o horário comercial</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- COLE AQUI O FOOTER DO INDEX.HTML -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TechStage</h4>
+                    <p>Sua plataforma especializada em estágios de tecnologia</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="vagas.html">Vagas</a></li>
+                        <li><a href="empresas.html">Para Empresas</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>email@techstage.com</p>
+                    <p>(11) 99999-9999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechStage. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

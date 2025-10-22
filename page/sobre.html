@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStage - [Nome da Página]</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <style>
+        /* About Section Styles */
+.about-section {
+    padding: 4rem 0;
+    background-color: #ffffff;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-header h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2.5rem;
+    color: #00008B;
+    margin-bottom: 1rem;
+}
+
+.about-header p {
+    font-size: 1.2rem;
+    color: #0000CD;
+    font-style: italic;
+}
+
+.about-card {
+    background-color: #f8f9fa;
+    padding: 2.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    border-left: 4px solid #0000FF;
+}
+
+.about-card h3 {
+    color: #00008B;
+    margin-bottom: 1.5rem;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.about-card p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Mission, Vision, Values */
+.mission-vision-values {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.mv-card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-top: 3px solid #0000CD;
+}
+
+.mv-card h4 {
+    color: #00008B;
+    margin-bottom: 1rem;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.mv-card p {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.mv-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.mv-card li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.mv-card li:before {
+    content: "✓";
+    color: #0000FF;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Values Grid */
+.values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.value-item {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.value-item h5 {
+    color: #00008B;
+    margin-bottom: 0.5rem;
+}
+
+.value-item p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #000000;
+}
+
+/* Differentiators */
+.differentiators {
+    margin-bottom: 3rem;
+}
+
+.differentiators h3 {
+    text-align: center;
+    color: #00008B;
+    margin-bottom: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.diff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.diff-card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 1px solid #D3D3D3;
+}
+
+.diff-card h4 {
+    color: #00008B;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.diff-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.diff-card li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #D3D3D3;
+    line-height: 1.5;
+}
+
+.diff-card li:last-child {
+    border-bottom: none;
+}
+
+/* Stats Placeholder */
+.stats-placeholder {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #00008B 0%, #0000CD 100%);
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.stats-placeholder h3 {
+    margin-bottom: 1rem;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.future-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.stat-item span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.stat-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .about-card {
+        padding: 1.5rem;
+    }
+    
+    .mission-vision-values {
+        grid-template-columns: 1fr;
+    }
+    
+    .diff-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .future-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stat-item span {
+        font-size: 2rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- COLE AQUI O HEADER DO INDEX.HTML -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>TechStage</h1>
+                    <span>Estágios em Tech</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="vagas.html">Vagas</a></li>
+                    <li><a href="empresas.html">Empresas</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="btn-login">Entrar</button>
+                    <button class="btn-register">Cadastrar</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- COLE AQUI O CONTEÚDO ESPECÍFICO DE CADA PÁGINA -->
+        <section id="sobre" class="about-section">
+            <div class="container">
+                <div class="about-header">
+                    <h2>Sobre o TechStage</h2>
+                    <p>Conectando o futuro da tecnologia, um estágio de cada vez</p>
+                </div>
+        
+                <div class="about-content">
+                    <!-- Sobre Nós -->
+                    <div class="about-card">
+                        <h3>🎯 Quem Somos</h3>
+                        <p>O <strong>TechStage</strong> nasceu da necessidade de criar uma ponte direta entre estudantes talentosos de programação e dados e as empresas que buscam novos talentos na área de tecnologia. Somos uma plataforma especializada e focada exclusivamente no primeiro emprego tech.</p>
+                        <p>Entendemos que começar na área de tecnologia pode ser desafiador. Por isso, criamos um ambiente onde estudantes encontram oportunidades reais e empresas descobrem futuros profissionais apaixonados por tecnologia.</p>
+                    </div>
+        
+                    <!-- Missão, Visão e Valores -->
+                    <div class="mission-vision-values">
+                        <div class="mv-card">
+                            <h4>🚀 Nossa Missão</h4>
+                            <p><strong>Facilitar o primeiro emprego em tecnologia</strong>, conectando estudantes de programação e dados com oportunidades de estágio que transformam potencial em carreira.</p>
+                            <ul>
+                                <li>Democratizar o acesso ao mercado de trabalho tech</li>
+                                <li>Reduzir a lacuna entre academia e mercado</li>
+                                <li>Oferecer vagas de qualidade com propósito educacional</li>
+                            </ul>
+                        </div>
+        
+                        <div class="mv-card">
+                            <h4>🔭 Nossa Visão</h4>
+                            <p><strong>Ser a principal plataforma de estágios em tecnologia do Brasil</strong>, reconhecida por lançar as carreiras dos maiores talentos tech do país e por ser parceira estratégica das empresas inovadoras.</p>
+                            <ul>
+                                <li>Referência em estágios de qualidade até 2027</li>
+                                <li>Expansão para todas as regiões do Brasil</li>
+                                <li>Ecossistema completo de desenvolvimento tech</li>
+                            </ul>
+                        </div>
+        
+                        <div class="mv-card">
+                            <h4>💎 Nossos Valores</h4>
+                            <div class="values-grid">
+                                <div class="value-item">
+                                    <h5>🎓 Aprendizado Contínuo</h5>
+                                    <p>Acreditamos que todo grande profissional começa como um estudante dedicado</p>
+                                </div>
+                                <div class="value-item">
+                                    <h5>🤝 Transparência</h5>
+                                    <p>Processos claros para estudantes e empresas, sem surpresas</p>
+                                </div>
+                                <div class="value-item">
+                                    <h5>⚡ Inovação</h5>
+                                    <p>Buscamos sempre as melhores soluções para conectar talentos e oportunidades</p>
+                                </div>
+                                <div class="value-item">
+                                    <h5>🌱 Desenvolvimento</h5>
+                                    <p>Investimos no crescimento dos estudantes e no sucesso das empresas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Diferenciais -->
+                    <div class="differentiators">
+                        <h3>⭐ Por que escolher o TechStage?</h3>
+                        <div class="diff-grid">
+                            <div class="diff-card">
+                                <h4>Para Estudantes</h4>
+                                <ul>
+                                    <li><strong>Vagas curadas</strong> - Selecionamos oportunidades com potencial real de aprendizado</li>
+                                    <li><strong>Feedback construtivo</strong> - Ajudamos você a entender e melhorar seu perfil</li>
+                                    <li><strong>Comunidade ativa</strong> - Conecte-se com outros estudantes e profissionais</li>
+                                    <li><strong>Preparação para processos</strong> - Dicas e recursos para se destacar</li>
+                                </ul>
+                            </div>
+                            <div class="diff-card">
+                                <h4>Para Empresas</h4>
+                                <ul>
+                                    <li><strong>Talentos qualificados</strong> - Acesso a estudantes com skills alinhados ao mercado</li>
+                                    <li><strong>Processo eficiente</strong> - Ferramentas para agilizar a contratação</li>
+                                    <li><strong>Diversidade</strong> - Plataforma que promove inclusão e variedade de perfis</li>
+                                    <li><strong>Parceria estratégica</strong> - Apoiamos no desenvolvimento dos estagiários</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Estatísticas (futuras) -->
+                    <div class="stats-placeholder">
+                        <h3>📊 Nosso Impacto</h3>
+                        <p>Em breve: acompanhe aqui nossas métricas de sucesso em conectar talentos tech!</p>
+                        <div class="future-stats">
+                            <div class="stat-item">
+                                <span>+500</span>
+                                <p>Estudantes conectados</p>
+                            </div>
+                            <div class="stat-item">
+                                <span>+100</span>
+                                <p>Empresas parceiras</p>
+                            </div>
+                            <div class="stat-item">
+                                <span>+300</span>
+                                <p>Estágios realizados</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- COLE AQUI O FOOTER DO INDEX.HTML -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TechStage</h4>
+                    <p>Sua plataforma especializada em estágios de tecnologia</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="vagas.html">Vagas</a></li>
+                        <li><a href="empresas.html">Para Empresas</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>email@techstage.com</p>
+                    <p>(11) 99999-9999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechStage. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

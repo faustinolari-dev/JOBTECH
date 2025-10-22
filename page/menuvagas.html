@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStage - Vagas de Estágio</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <style>
+        /* Vagas Page Styles */
+.vagas-hero {
+    background: linear-gradient(135deg, #00008B 0%, #0000CD 100%);
+    color: #ffffff;
+    padding: 3rem 0;
+}
+
+.vagas-hero-content h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.vagas-hero-content p {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #D3D3D3;
+}
+
+.vagas-search-box {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto 1.5rem;
+}
+
+.vagas-search-box input,
+.vagas-search-box select {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+.btn-search-vagas {
+    background-color: #0000FF;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-search-vagas:hover {
+    background-color: #0000CD;
+}
+
+.quick-filters {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.quick-filters span {
+    color: #D3D3D3;
+    font-weight: 600;
+}
+
+.filter-tag {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #D3D3D3;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-tag.active,
+.filter-tag:hover {
+    background-color: #0000FF;
+    border-color: #0000FF;
+}
+
+/* Advanced Filters */
+.advanced-filters {
+    background-color: #f8f9fa;
+    padding: 2rem 0;
+    border-bottom: 1px solid #D3D3D3;
+}
+
+.filters-container h3 {
+    color: #00008B;
+    font-family: Georgia, 'Times New Roman', serif;
+    margin-bottom: 1.5rem;
+}
+
+.filters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-group label {
+    display: block;
+    color: #00008B;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.filter-checkbox input {
+    width: auto;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-apply-filters {
+    background-color: #0000FF;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-clear-filters {
+    background-color: transparent;
+    color: #00008B;
+    border: 1px solid #00008B;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Vagas Listing */
+.vagas-listing {
+    padding: 3rem 0;
+    background-color: #ffffff;
+}
+
+.listing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.listing-header h3 {
+    color: #00008B;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.8rem;
+}
+
+.sorting-options {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.sort-select {
+    padding: 0.5rem;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+}
+
+.results-count {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Vagas Grid */
+.vagas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.vaga-card {
+    background-color: #ffffff;
+    border: 1px solid #D3D3D3;
+    border-radius: 10px;
+    padding: 2rem;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vaga-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.vaga-card.featured {
+    border: 2px solid #0000FF;
+    background-color: #f8f9fa;
+}
+
+.vaga-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background-color: #0000FF;
+    color: #ffffff;
+    padding: 0.3rem 1rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.vaga-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.vaga-header h4 {
+    color: #00008B;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.3rem;
+    margin: 0;
+    flex: 1;
+}
+
+.vaga-salario {
+    background-color: #0000CD;
+    color: #ffffff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.vaga-company {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.company-name {
+    color: #0000CD;
+    font-weight: 600;
+}
+
+.vaga-age {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.vaga-details {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.vaga-localizacao,
+.vaga-modalidade,
+.vaga-periodo {
+    color: #000000;
+    font-size: 0.9rem;
+}
+
+.vaga-descricao {
+    color: #000000;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.vaga-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill-tag {
+    background-color: #D3D3D3;
+    color: #000000;
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+.vaga-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.benefit {
+    color: #00008B;
+    font-size: 0.9rem;
+}
+
+.vaga-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-candidatar {
+    background-color: #0000FF;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    flex: 1;
+    transition: background-color 0.3s ease;
+}
+
+.btn-candidatar:hover {
+    background-color: #0000CD;
+}
+
+.btn-salvar {
+    background-color: transparent;
+    color: #00008B;
+    border: 1px solid #00008B;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-salvar:hover {
+    background-color: #00008B;
+    color: #ffffff;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.page-btn {
+    background-color: #ffffff;
+    color: #00008B;
+    border: 1px solid #D3D3D3;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.page-btn:hover {
+    background-color: #0000CD;
+    color: #ffffff;
+    border-color: #0000CD;
+}
+
+.page-btn.active {
+    background-color: #00008B;
+    color: #ffffff;
+    border-color: #00008B;
+}
+
+.page-btn.disabled {
+    background-color: #D3D3D3;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* CTA Section */
+.vagas-cta {
+    background: linear-gradient(135deg, #00008B 0%, #0000CD 100%);
+    color: #ffffff;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.vagas-cta h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.vagas-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.btn-cta-vagas {
+    background-color: #0000FF;
+    color: #ffffff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cta-vagas:hover {
+    background-color: #ffffff;
+    color: #00008B;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .vagas-search-box {
+        grid-template-columns: 1fr;
+    }
+    
+    .listing-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .vagas-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .vaga-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .vaga-actions {
+        flex-direction: column;
+    }
+    
+    .filters-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .vaga-card {
+        padding: 1.5rem;
+    }
+    
+    .vaga-details {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .pagination {
+        flex-wrap: wrap;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>TechStage</h1>
+                    <span>Estágios em Tech</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="vagas.html">Vagas</a></li>
+                    <li><a href="empresas.html">Empresas</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="btn-login">Entrar</button>
+                    <button class="btn-register">Cadastrar</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section Vagas -->
+        <section class="vagas-hero">
+            <div class="container">
+                <div class="vagas-hero-content">
+                    <h2>Encontre Sua Vaga de Estágio Ideal</h2>
+                    <p>+150 oportunidades em programação, dados e tecnologia</p>
+                    <div class="vagas-search-box">
+                        <input type="text" placeholder="Cargo, tecnologia ou palavra-chave...">
+                        <select class="location-select">
+                            <option value="">Todas as localidades</option>
+                            <option value="remoto">Remoto</option>
+                            <option value="sp">São Paulo, SP</option>
+                            <option value="rj">Rio de Janeiro, RJ</option>
+                            <option value="mg">Belo Horizonte, MG</option>
+                            <option value="rs">Porto Alegre, RS</option>
+                        </select>
+                        <select class="category-select">
+                            <option value="">Todas as categorias</option>
+                            <option value="frontend">Front-end</option>
+                            <option value="backend">Back-end</option>
+                            <option value="fullstack">Full Stack</option>
+                            <option value="mobile">Mobile</option>
+                            <option value="dados">Ciência de Dados</option>
+                            <option value="devops">DevOps</option>
+                        </select>
+                        <button class="btn-search-vagas">Buscar Vagas</button>
+                    </div>
+                    <div class="quick-filters">
+                        <span>Filtros rápidos:</span>
+                        <button class="filter-tag active">Remoto</button>
+                        <button class="filter-tag">São Paulo</button>
+                        <button class="filter-tag">Front-end</button>
+                        <button class="filter-tag">Back-end</button>
+                        <button class="filter-tag">Dados</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filtros Avançados -->
+        <section class="advanced-filters">
+            <div class="container">
+                <div class="filters-container">
+                    <h3>Filtrar Vagas</h3>
+                    <div class="filters-grid">
+                        <div class="filter-group">
+                            <label>Tipo de Vaga</label>
+                            <div class="filter-options">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" checked> Estágio
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox"> Júnior
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox"> Trainee
+                                </label>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <label>Modalidade</label>
+                            <div class="filter-options">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" checked> Presencial
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" checked> Híbrido
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" checked> Remoto
+                                </label>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <label>Nível de Experiência</label>
+                            <div class="filter-options">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" checked> Iniciante
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox"> Intermediário
+                                </label>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <label>Benefícios</label>
+                            <div class="filter-options">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox"> Bolsa Auxílio
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox"> Vale Transporte
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox"> Vale Refeição
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox"> Plano de Saúde
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-actions">
+                        <button class="btn-apply-filters">Aplicar Filtros</button>
+                        <button class="btn-clear-filters">Limpar Filtros</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lista de Vagas -->
+        <section class="vagas-listing">
+            <div class="container">
+                <div class="listing-header">
+                    <h3>Vagas Disponíveis</h3>
+                    <div class="sorting-options">
+                        <span>Ordenar por:</span>
+                        <select class="sort-select">
+                            <option value="recentes">Mais Recentes</option>
+                            <option value="salario">Maior Salário</option>
+                            <option value="empresa">Nome da Empresa</option>
+                        </select>
+                        <span class="results-count">Mostrando 24 de 156 vagas</span>
+                    </div>
+                </div>
+
+                <div class="vagas-grid">
+                    <!-- Vaga 1 -->
+                    <div class="vaga-card featured">
+                        <div class="vaga-badge">Destaque</div>
+                        <div class="vaga-header">
+                            <h4>Estágio em Desenvolvimento Front-end</h4>
+                            <span class="vaga-salario">R$ 1.800 - R$ 2.200</span>
+                        </div>
+                        <div class="vaga-company">
+                            <span class="company-name">TechInnovate Solutions</span>
+                            <span class="vaga-age">Postada há 2 dias</span>
+                        </div>
+                        <div class="vaga-details">
+                            <span class="vaga-localizacao">📍 São Paulo, SP</span>
+                            <span class="vaga-modalidade">💻 Híbrido</span>
+                            <span class="vaga-periodo">⏰ 6h diárias</span>
+                        </div>
+                        <p class="vaga-descricao">Busca-se estudante de Ciência da Computação ou áreas correlatas com conhecimento em HTML, CSS, JavaScript e React. Ótima oportunidade para aprender com equipe sênior.</p>
+                        <div class="vaga-skills">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">Git</span>
+                        </div>
+                        <div class="vaga-benefits">
+                            <span class="benefit">🎓 Bolsa Auxílio</span>
+                            <span class="benefit">🚌 Vale Transporte</span>
+                            <span class="benefit">🍱 Vale Refeição</span>
+                        </div>
+                        <div class="vaga-actions">
+                            <button class="btn-candidatar">Candidatar-se</button>
+                            <button class="btn-salvar">Salvar</button>
+                        </div>
+                    </div>
+
+                    <!-- Vaga 2 -->
+                    <div class="vaga-card">
+                        <div class="vaga-header">
+                            <h4>Estágio em Ciência de Dados</h4>
+                            <span class="vaga-salario">R$ 2.000 - R$ 2.500</span>
+                        </div>
+                        <div class="vaga-company">
+                            <span class="company-name">DataMasters Analytics</span>
+                            <span class="vaga-age">Postada há 1 dia</span>
+                        </div>
+                        <div class="vaga-details">
+                            <span class="vaga-localizacao">📍 Remoto</span>
+                            <span class="vaga-modalidade">💻 100% Remoto</span>
+                            <span class="vaga-periodo">⏰ 6h diárias</span>
+                        </div>
+                        <p class="vaga-descricao">Vaga para estudante com conhecimento em Python, SQL e estatística. Irá atuar na análise de dados e construção de dashboards para clientes corporativos.</p>
+                        <div class="vaga-skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">Power BI</span>
+                        </div>
+                        <div class="vaga-benefits">
+                            <span class="benefit">🎓 Bolsa Auxílio</span>
+                            <span class="benefit">💻 Equipment</span>
+                            <span class="benefit">📚 Curso</span>
+                        </div>
+                        <div class="vaga-actions">
+                            <button class="btn-candidatar">Candidatar-se</button>
+                            <button class="btn-salvar">Salvar</button>
+                        </div>
+                    </div>
+
+                    <!-- Vaga 3 -->
+                    <div class="vaga-card">
+                        <div class="vaga-header">
+                            <h4>Estágio em Desenvolvimento Back-end</h4>
+                            <span class="vaga-salario">R$ 1.600 - R$ 2.000</span>
+                        </div>
+                        <div class="vaga-company">
+                            <span class="company-name">CodeCraft Studios</span>
+                            <span class="vaga-age">Postada há 3 dias</span>
+                        </div>
+                        <div class="vaga-details">
+                            <span class="vaga-localizacao">📍 Rio de Janeiro, RJ</span>
+                            <span class="vaga-modalidade">💻 Presencial</span>
+                            <span class="vaga-periodo">⏰ 4h diárias</span>
+                        </div>
+                        <p class="vaga-descricao">Oportunidade para estudantes interessados em desenvolvimento back-end com Node.js. Ambiente dinâmico com metodologias ágeis.</p>
+                        <div class="vaga-skills">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">API REST</span>
+                        </div>
+                        <div class="vaga-benefits">
+                            <span class="benefit">🎓 Bolsa Auxílio</span>
+                            <span class="benefit">🚌 Vale Transporte</span>
+                            <span class="benefit">📚 Mentoria</span>
+                        </div>
+                        <div class="vaga-actions">
+                            <button class="btn-candidatar">Candidatar-se</button>
+                            <button class="btn-salvar">Salvar</button>
+                        </div>
+                    </div>
+
+                    <!-- Vaga 4 -->
+                    <div class="vaga-card">
+                        <div class="vaga-header">
+                            <h4>Estágio em Mobile Development</h4>
+                            <span class="vaga-salario">R$ 1.800 - R$ 2.200</span>
+                        </div>
+                        <div class="vaga-company">
+                            <span class="company-name">MobileFirst Dev</span>
+                            <span class="vaga-age">Postada há 5 dias</span>
+                        </div>
+                        <div class="vaga-details">
+                            <span class="vaga-localizacao">📍 Belo Horizonte, MG</span>
+                            <span class="vaga-modalidade">💻 Híbrido</span>
+                            <span class="vaga-periodo">⏰ 6h diárias</span>
+                        </div>
+                        <p class="vaga-descricao">Desenvolvimento de aplicativos mobile com React Native. Ideal para estudantes que desejam aprender desenvolvimento cross-platform.</p>
+                        <div class="vaga-skills">
+                            <span class="skill-tag">React Native</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Firebase</span>
+                            <span class="skill-tag">Git</span>
+                        </div>
+                        <div class="vaga-benefits">
+                            <span class="benefit">🎓 Bolsa Auxílio</span>
+                            <span class="benefit">🍱 Vale Refeição</span>
+                            <span class="benefit">📚 Certificação</span>
+                        </div>
+                        <div class="vaga-actions">
+                            <button class="btn-candidatar">Candidatar-se</button>
+                            <button class="btn-salvar">Salvar</button>
+                        </div>
+                    </div>
+
+                    <!-- Vaga 5 -->
+                    <div class="vaga-card">
+                        <div class="vaga-header">
+                            <h4>Estágio em DevOps</h4>
+                            <span class="vaga-salario">R$ 2.200 - R$ 2.600</span>
+                        </div>
+                        <div class="vaga-company">
+                            <span class="company-name">CloudNest Tech</span>
+                            <span class="vaga-age">Postada há 1 semana</span>
+                        </div>
+                        <div class="vaga-details">
+                            <span class="vaga-localizacao">📍 Remoto</span>
+                            <span class="vaga-modalidade">💻 100% Remoto</span>
+                            <span class="vaga-periodo">⏰ 6h diárias</span>
+                        </div>
+                        <p class="vaga-descricao">Aprenda sobre infraestrutura cloud, containers e automação. Conhecimento básico em Linux e redes é desejável.</p>
+                        <div class="vaga-skills">
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">CI/CD</span>
+                        </div>
+                        <div class="vaga-benefits">
+                            <span class="benefit">🎓 Bolsa Auxílio</span>
+                            <span class="benefit">💻 Equipment</span>
+                            <span class="benefit">☁️ AWS Credits</span>
+                        </div>
+                        <div class="vaga-actions">
+                            <button class="btn-candidatar">Candidatar-se</button>
+                            <button class="btn-salvar">Salvar</button>
+                        </div>
+                    </div>
+
+                    <!-- Vaga 6 -->
+                    <div class="vaga-card">
+                        <div class="vaga-header">
+                            <h4>Estágio em Cybersecurity</h4>
+                            <span class="vaga-salario">R$ 2.000 - R$ 2.400</span>
+                        </div>
+                        <div class="vaga-company">
+                            <span class="company-name">SecureCode Systems</span>
+                            <span class="vaga-age">Postada há 4 dias</span>
+                        </div>
+                        <div class="vaga-details">
+                            <span class="vaga-localizacao">📍 Brasília, DF</span>
+                            <span class="vaga-modalidade">💻 Presencial</span>
+                            <span class="vaga-periodo">⏰ 4h diárias</span>
+                        </div>
+                        <p class="vaga-descricao">Vaga para estudantes interessados em segurança da informação. Aprenda sobre testes de penetração e análise de vulnerabilidades.</p>
+                        <div class="vaga-skills">
+                            <span class="skill-tag">Cybersecurity</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Redes</span>
+                        </div>
+                        <div class="vaga-benefits">
+                            <span class="benefit">🎓 Bolsa Auxílio</span>
+                            <span class="benefit">🏥 Plano de Saúde</span>
+                            <span class="benefit">📚 Certificação</span>
+                        </div>
+                        <div class="vaga-actions">
+                            <button class="btn-candidatar">Candidatar-se</button>
+                            <button class="btn-salvar">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paginação -->
+                <div class="pagination">
+                    <button class="page-btn disabled">‹ Anterior</button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn">4</button>
+                    <button class="page-btn">5</button>
+                    <button class="page-btn">Próximo ›</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="vagas-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h3>Não encontrou a vaga ideal?</h3>
+                    <p>Cadastre seu perfil e receba vagas personalizadas no seu e-mail</p>
+                    <button class="btn-cta-vagas">Cadastrar Perfil</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TechStage</h4>
+                    <p>Sua plataforma especializada em estágios de tecnologia</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="vagas.html">Vagas</a></li>
+                        <li><a href="empresas.html">Para Empresas</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>email@techstage.com</p>
+                    <p>(11) 99999-9999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechStage. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
